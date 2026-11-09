@@ -1,0 +1,19 @@
+﻿serve.ps1
+.taste-skill/
+Thumbs.db
+desktop.ini
+
+# imágenes que la página ya no usa
+img/addcars-flujo.jpg
+img/addcars-form.jpg
+img/agro-ensamblaje.jpg
+img/agro-tinkercad.jpg
+img/medeck-anatomia.jpg
+img/medeck-interior.jpg
+img/volta-camiseta.jpg
+img/volta-chaqueta.jpg
+img/volta-home.jpg
+img/volta-logo.jpg
+img/volta-polera.jpg
+img/volta-wire.jpg
+img/volta-zapatilla.jpg

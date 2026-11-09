@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benjamín Garrido · Portafolio</title>
+<meta name="description" content="Estudiante de Ingeniería en Informática (UBO). Proyectos en Java y MySQL, Arduino y C++, machine learning y diseño UI/UX. Disponible para práctica profesional desde diciembre de 2026.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Benjamín Garrido · Portafolio">
+<meta property="og:description" content="Software, bases de datos y hardware: proyectos de Ingeniería en Informática.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/medeck-clinica.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23000'/%3E%3Ctext x='32' y='41' font-family='Arial' font-weight='700' font-size='24' text-anchor='middle' fill='%23f5f5f7'%3EBG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff; --paper:#f5f5f7; --ink:#1d1d1f; --ink-2:#6e6e73; --ink-3:#86868b;
+  --black:#000000; --night-tile:#161617; --night-line:#2a2a2d; --on-night:#f5f5f7; --on-night-2:#a1a1a6;
+  --blue:#0071e3; --blue-hover:#0077ed; --link-dark:#2997ff;
+  --orange-1:#ff8a3d; --orange-2:#f5a35c; --alert:#ff453a; --safe:#30d158;
+  --grad:linear-gradient(92deg,#ff9f5a 0%,#ffcf9f 45%,#f2f2f2 100%);
+  --sans:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter",system-ui,"Segoe UI",sans-serif;
+  --r-tile:28px; --r-media:22px;
+  --gutter:clamp(16px,4vw,40px); --max:1060px; --max-wide:1260px;
+  --ease:cubic-bezier(.28,.11,.32,1); --ease-out:cubic-bezier(.16,1,.3,1);
+  --nav-h:52px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:var(--nav-h)}
+body{margin:0;background:var(--white);color:var(--ink);font:400 17px/1.47 var(--sans);letter-spacing:-.022em;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-optical-sizing:auto}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;letter-spacing:inherit}
+h1,h2,h3,h4,p,figure{margin:0}
+h1,h2,h3{font-weight:700;letter-spacing:-.035em;line-height:1.06;text-wrap:balance}
+p{text-wrap:pretty}
+ul,ol{margin:0;padding:0;list-style:none}
+.wrap{width:100%;max-width:calc(var(--max) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+.wrap-wide{width:100%;max-width:calc(var(--max-wide) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:fixed;left:16px;top:-80px;z-index:100;background:var(--blue);color:#fff;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:600;transition:top .2s}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+.dark :focus-visible{outline-color:var(--link-dark)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* buttons / links */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 22px;border-radius:999px;background:var(--blue);color:#fff;font-size:17px;font-weight:500;text-decoration:none;border:0;white-space:nowrap;transition:background-color .2s,transform .2s var(--ease),color .2s}
+.btn:hover{background:var(--blue-hover);transform:translateY(-1px)}
+.btn:active{transform:scale(.97)}
+.btn--line{background:transparent;color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}
+.btn--line:hover{background:var(--blue);color:#fff}
+.dark .btn--line{color:var(--link-dark);box-shadow:inset 0 0 0 1px var(--link-dark)}
+.dark .btn--line:hover{background:var(--link-dark);color:#000}
+.more{display:inline-flex;align-items:center;gap:4px;min-height:44px;color:var(--blue);text-decoration:none;font-size:17px}
+.dark .more{color:var(--link-dark)}
+.more:hover span{text-decoration:underline}
+.more svg{width:12px;height:12px;transition:transform .25s var(--ease)}
+.more:hover svg{transform:translateX(3px)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;height:var(--nav-h);color:var(--on-night);background:rgba(22,22,23,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,.08);transition:background-color .35s,color .35s,border-color .35s}
+.nav.light{background:rgba(251,251,253,.8);color:var(--ink);border-color:rgba(0,0,0,.08)}
+.nav .wrap-wide{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-size:21px;font-weight:600;letter-spacing:-.02em;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a:not(.btn){font-size:13px;letter-spacing:-.01em;text-decoration:none;opacity:.8;transition:opacity .2s;padding:12px 0}
+.nav-links a:not(.btn):hover{opacity:1}
+.nav-links .btn{min-height:30px;padding:0 14px;font-size:13px}
+.menu-btn{display:none;width:44px;height:44px;border:0;background:transparent;position:relative;margin-right:-10px}
+.menu-btn span{position:absolute;left:13px;right:13px;height:1.5px;background:currentColor;border-radius:2px;transition:transform .3s var(--ease)}
+.menu-btn span:nth-child(1){top:18px}.menu-btn span:nth-child(2){top:25px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+
+/* sections */
+section{position:relative}
+.dark{background:var(--black);color:var(--on-night)}
+.grey{background:var(--paper)}
+.pad{padding-block:clamp(88px,12vw,160px)}
+.eyebrow{display:block;font-size:clamp(17px,1.7vw,21px);font-weight:600;letter-spacing:-.015em;margin-bottom:14px;color:var(--ink-2)}
+.dark .eyebrow{color:var(--on-night-2)}
+.headline{font-size:clamp(40px,6.4vw,80px);font-weight:700;letter-spacing:-.045em;line-height:1.04}
+.headline-m{font-size:clamp(34px,4.8vw,56px);letter-spacing:-.04em;line-height:1.07}
+.intro{font-size:clamp(19px,1.9vw,24px);font-weight:500;line-height:1.38;color:var(--ink-2);max-width:780px;letter-spacing:-.02em}
+.dark .intro{color:var(--on-night-2)}
+.intro b{color:var(--ink);font-weight:600}
+.dark .intro b{color:var(--on-night)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(40px) scale(.985);filter:blur(10px);transition:opacity 1.1s var(--ease-out),transform 1.3s var(--ease-out),filter 1.1s var(--ease-out);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.in{opacity:1;transform:none;filter:blur(0)}
+.js .scale-in{transform:scale(var(--s,.92));will-change:transform}
+/* media: se descubre con una máscara redondeada */
+.js .media.rv,.js .player.rv{filter:none;transform:translateY(30px);clip-path:inset(10% 6% 10% 6% round 28px);transition:opacity 1s var(--ease-out),transform 1.4s var(--ease-out),clip-path 1.4s var(--ease-out)}
+.js .media.rv.in,.js .player.rv.in{transform:none;clip-path:inset(0 0 0 0 round 22px)}
+.js .scale-in.rv-media{clip-path:inset(12% 8% 12% 8% round 28px);transition:clip-path 1.5s var(--ease-out)}
+.js .scale-in.rv-media.in{clip-path:inset(0 0 0 0 round 22px)}
+/* títulos palabra por palabra */
+.js .split .w{display:inline-block;opacity:0;transform:translateY(.45em);filter:blur(8px);transition:opacity .9s var(--ease-out),transform 1s var(--ease-out),filter .9s var(--ease-out);transition-delay:calc(var(--w,0)*55ms + var(--d,0)*90ms)}
+.js .split.in .w{opacity:1;transform:none;filter:blur(0)}
+.js .split.rv{opacity:1;transform:none;filter:none}
+.split .grad{display:inline}
+.split .grad .w{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-block:calc(var(--nav-h) + 48px) 80px}
+.hero::before{content:"";position:absolute;left:50%;top:60%;width:min(1100px,150vw);aspect-ratio:1.6;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(255,138,61,.30),rgba(255,138,61,.08) 55%,transparent 75%);pointer-events:none}
+.hero .wrap{position:relative;text-align:center}
+.hero .name{font-size:clamp(19px,2vw,24px);font-weight:600;letter-spacing:-.015em}
+.hero h1{font-size:clamp(50px,10.4vw,132px);font-weight:700;letter-spacing:-.055em;line-height:.98;margin:18px 0 26px}
+.hero h1 span{display:block}
+.hero .intro{margin:0 auto 34px;max-width:640px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;justify-content:center}
+.pill{display:inline-flex;align-items:center;gap:9px;margin-top:52px;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:14px;color:var(--on-night)}
+.pill i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--safe);animation:ping 2.6s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(48,209,88,.5)}70%,100%{box-shadow:0 0 0 9px rgba(48,209,88,0)}}
+.scroll-cue{position:absolute;left:50%;bottom:26px;margin-left:-13px;width:26px;height:42px;border-radius:14px;border:1.5px solid rgba(255,255,255,.35)}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{0%{opacity:0;transform:translateY(0)}30%{opacity:1}80%,100%{opacity:0;transform:translateY(12px)}}
+.js .hero .h-in{opacity:0;transform:translateY(24px);filter:blur(6px)}
+.js .hero.ready .h-in{opacity:1;transform:none;filter:none;transition:opacity 1.1s var(--ease-out),transform 1.2s var(--ease-out),filter 1.1s var(--ease-out);transition-delay:calc(var(--d,0)*120ms)}
+
+/* resumen bento */
+.hl-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.tile{position:relative;border-radius:var(--r-tile);background:var(--white);padding:clamp(26px,3vw,40px);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:260px;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.tile:hover{transform:translateY(-2px);box-shadow:0 18px 48px -24px rgba(0,0,0,.22)}
+.tile .k{font-size:17px;font-weight:600;color:var(--ink-2)}
+.tile .v{font-size:clamp(40px,5vw,64px);font-weight:700;letter-spacing:-.05em;line-height:1}
+.tile p{font-size:17px;color:var(--ink-2);margin-top:10px;max-width:40ch}
+.tile p b{color:var(--ink);font-weight:600}
+.t-a{grid-column:span 4;background:#000;color:var(--on-night)}
+.t-a .k{color:var(--on-night-2)}
+.t-a p{color:var(--on-night-2)}.t-a p b{color:#fff}
+.t-a .v{font-size:clamp(44px,6.4vw,84px);padding-bottom:.06em}
+.t-b,.t-c,.t-d,.t-e{grid-column:span 2}
+.lang-row{display:flex;flex-wrap:wrap;gap:10px}
+.lang-row img{width:34px;height:34px}
+
+/* chapters */
+.chapter{padding-top:clamp(96px,13vw,180px)}
+.chapter .head{text-align:center;margin-bottom:clamp(44px,6vw,72px)}
+.chapter .head .intro{margin:22px auto 0}
+.status{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;padding:6px 13px;border-radius:999px;border:1px solid rgba(255,159,90,.5);color:var(--orange-2);font-size:13px;font-weight:600;letter-spacing:0}
+.status i{width:7px;height:7px;border-radius:50%;background:currentColor;animation:blinkdot 1.4s ease-in-out infinite}
+@keyframes blinkdot{50%{opacity:.25}}
+.media{border-radius:var(--r-media);overflow:hidden;background:var(--paper);position:relative}
+.media img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.media:hover img{transform:scale(1.025)}
+.media button{all:unset;position:absolute;inset:0;cursor:zoom-in;border-radius:inherit}
+.media button:focus-visible{outline:2px solid var(--blue);outline-offset:-4px}
+.dark .media{background:var(--night-tile)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.grid-2 .media{aspect-ratio:4/3}
+.contain img{object-fit:contain;background:#fff}
+
+.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-block:clamp(56px,7vw,88px) clamp(96px,12vw,160px);text-align:center}
+.specs .lbl{font-size:14px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.dark .specs .lbl{color:var(--on-night-2)}
+.specs .num{font-size:clamp(40px,5.4vw,64px);font-weight:700;letter-spacing:-.05em;line-height:1.05}
+.specs .num small{font-size:.45em;font-weight:600;letter-spacing:-.02em}
+.specs .cap{font-size:15px;color:var(--ink-2);margin-top:8px;line-height:1.35}
+.dark .specs .cap{color:var(--on-night-2)}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.feat .tile{min-height:0;justify-content:flex-start;gap:0}
+.feat .tile h3{font-size:24px;letter-spacing:-.03em;margin-bottom:8px}
+.feat .tile p{margin:0;font-size:17px}
+.dark .feat .tile p{color:var(--on-night-2)}
+.tools{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px}
+.tool{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:999px;background:var(--paper);font-size:14px;font-weight:500}
+.dark .tool{background:var(--night-tile);color:var(--on-night)}
+.tool img{width:18px;height:18px}
+
+/* detection player */
+.player{border-radius:var(--r-media);overflow:hidden;background:#0d0d0e;border:1px solid var(--night-line);position:relative;transition:box-shadow .35s,border-color .35s}
+.player.alarm{border-color:var(--alert);box-shadow:0 0 0 1px var(--alert),0 0 80px -10px rgba(255,69,58,.6)}
+.player svg{display:block;width:100%;height:auto}
+.glass-pill{position:absolute;display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;color:#fff;
+  background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.05)),rgba(30,30,32,.45);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 0 0 .5px rgba(255,255,255,.2),0 8px 24px -10px rgba(0,0,0,.5);transition:background-color .3s,color .3s}
+.glass-pill i{width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+.player .state{left:16px;bottom:16px;color:#5ef08a}
+.player.alarm .state{color:#ff7a70;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.04)),rgba(120,16,12,.55)}
+.player .live{right:16px;bottom:16px;color:var(--on-night)}
+.player .live i{background:#ff453a;animation:blinkdot 1.4s ease-in-out infinite}
+.alarm-banner{opacity:0;transition:opacity .2s}
+.player.alarm .alarm-banner{opacity:1;animation:flash .5s steps(2,start) infinite}
+@keyframes flash{to{opacity:.4}}
+.siren{opacity:0}
+.player.alarm .siren{opacity:1}
+.player.alarm .siren circle{animation:ring 1.1s var(--ease-out) infinite}
+.player.alarm .siren circle:nth-child(2){animation-delay:.37s}
+.player.alarm .siren circle:nth-child(3){animation-delay:.74s}
+@keyframes ring{from{r:24px;opacity:.9}to{r:130px;opacity:0}}
+.zone-fill{transition:fill-opacity .25s}
+.player.alarm .zone-fill{fill-opacity:.3}
+.flash-edge{opacity:0}
+.player.alarm .flash-edge{animation:edge 1s ease-in-out infinite}
+@keyframes edge{50%{opacity:.9}}
+
+/* project media */
+.ac-main{aspect-ratio:894/596;max-width:920px;margin-inline:auto;box-shadow:0 40px 80px -40px rgba(0,0,0,.35);background:#fff}
+.ac-main img{object-position:top}
+.code-tile{background:#1e1e1e!important}
+.code-tile img{object-fit:contain;background:#1e1e1e}
+.md-main{aspect-ratio:1024/609}
+.ag{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:20px;height:min(720px,72vw)}
+.ag .big{grid-row:span 2}
+.ag .big img{object-position:50% 62%}
+.ag .sk3d{background:#cfcfcd}
+
+/* volta */
+.volta-word{font-size:clamp(96px,22vw,300px);font-weight:800;letter-spacing:-.07em;line-height:.9;padding-bottom:.04em;margin:0 0 28px;background:linear-gradient(180deg,#1d1d1f 35%,#a9a9b0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* skills */
+.sk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.sk{border-radius:var(--r-tile);background:var(--white);padding:30px 26px;display:flex;flex-direction:column;gap:14px;min-height:240px;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.sk:hover{transform:translateY(-2px);box-shadow:0 18px 48px -24px rgba(0,0,0,.2)}
+.sk .ics{display:flex;gap:10px;flex-wrap:wrap}
+.sk .ics img{width:36px;height:36px}
+.sk .ics .txt{display:grid;place-items:center;height:36px;padding:0 10px;border-radius:10px;background:var(--paper);font-size:12px;font-weight:700;color:var(--ink-2)}
+.sk h3{font-size:21px;letter-spacing:-.025em;margin-top:auto}
+.sk p{font-size:15px;color:var(--ink-2);line-height:1.42}
+
+/* experience */
+.exp-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(40px,6vw,96px);align-items:start}
+.tl li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:26px 0;border-top:1px solid #d2d2d7}
+.tl li:last-child{border-bottom:1px solid #d2d2d7}
+.tl time{font-size:14px;font-weight:600;color:var(--ink-3);padding-top:3px}
+.tl h3{font-size:21px;letter-spacing:-.025em;line-height:1.2}
+.tl .org{font-size:15px;color:var(--ink-2);margin:2px 0 8px;font-weight:500}
+.tl p{font-size:15px;color:var(--ink-2)}
+.side .k{font-size:14px;font-weight:600;color:var(--ink-3);letter-spacing:-.01em;margin:0 0 12px}
+.card{border-radius:18px;background:var(--paper);padding:20px 22px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.card h4{margin:0 0 3px;font-size:17px;font-weight:600;letter-spacing:-.02em}
+.card p{font-size:14px;color:var(--ink-2)}
+.card .yr{font-size:13px;color:var(--ink-3);white-space:nowrap;padding-top:2px}
+.card.aws{justify-content:flex-start;align-items:center}
+.card.aws img{width:46px;height:46px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chips li{padding:8px 14px;border-radius:999px;background:var(--paper);font-size:14px;font-weight:500}
+.side-block{margin-bottom:32px}
+
+/* contact */
+.contact{min-height:92svh;display:flex;flex-direction:column;justify-content:center;text-align:center;overflow:hidden}
+.contact::before{content:"";position:absolute;left:50%;bottom:-30%;width:min(1000px,150vw);aspect-ratio:1.4;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,138,61,.22),transparent 72%);pointer-events:none}
+.contact .wrap{position:relative}
+.contact h2{font-size:clamp(50px,9vw,112px);letter-spacing:-.055em;line-height:1;margin:6px 0 30px}
+.mail{display:inline-block;font-size:clamp(19px,2.6vw,30px);font-weight:600;letter-spacing:-.025em;color:var(--on-night);text-decoration:none;word-break:break-all;background:linear-gradient(var(--link-dark),var(--link-dark)) 0 100%/0 2px no-repeat;transition:background-size .4s var(--ease);padding-bottom:4px;vertical-align:middle}
+.mail:hover{background-size:100% 2px}
+.contact .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px}
+.copy{min-height:44px;padding:0 16px;border-radius:999px;border:0;background:rgba(255,255,255,.1);color:var(--on-night);font-size:14px;margin-left:10px;vertical-align:middle;transition:background-color .2s,transform .2s}
+.copy:hover{background:rgba(255,255,255,.18)}
+.copy:active{transform:scale(.96)}
+footer{background:var(--paper);color:var(--ink-2);font-size:12px;letter-spacing:-.01em}
+footer .wrap-wide{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:12px}
+footer a{color:var(--ink);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+footer a:hover{text-decoration:underline}
+
+/* scroll progress */
+.progress{position:fixed;left:0;right:0;top:var(--nav-h);height:2px;z-index:61;pointer-events:none}
+.progress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#ff9f5a,#ffcf9f);transform-origin:0 50%;transform:scaleX(var(--sp,0))}
+
+/* chapter dock (liquid glass) */
+.dock{position:fixed;left:50%;bottom:22px;z-index:55;display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.04)),rgba(28,28,30,.7);
+  backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(255,255,255,.06),0 0 0 .5px rgba(255,255,255,.18),0 12px 36px -10px rgba(0,0,0,.45);
+  transform:translate(-50%,24px) scale(.96);opacity:0;visibility:hidden;transition:opacity .35s var(--ease),transform .5s var(--ease-out),visibility 0s .5s}
+.dock.show{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);transition:opacity .35s var(--ease),transform .5s var(--ease-out)}
+.dock a{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 14px;border-radius:999px;color:rgba(255,255,255,.78);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:-.01em;transition:background-color .25s,color .25s}
+.dock a b{font-weight:600;font-variant-numeric:tabular-nums;opacity:.6}
+.dock a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.dock a[aria-current="true"]{background:rgba(255,255,255,.92);color:#1d1d1f}
+.dock a[aria-current="true"] b{opacity:.5}
+
+/* end-of-chapter link */
+.next{display:flex;justify-content:center;gap:12px 28px;flex-wrap:wrap;padding-bottom:clamp(96px,12vw,160px);margin-top:-24px}
+.specs{padding-bottom:clamp(48px,6vw,72px)}
+.next .more{font-size:19px}
+
+/* grid stagger (ui-ux-pro-max: stagger list) */
+.js .bento .rv,.js .sk-grid .rv,.js .feat .rv,.js .tools .tool,.js .chips li,.js .tl li.rv{opacity:0;transform:translateY(22px) scale(.94);filter:blur(8px);transition:opacity .7s var(--ease-out),transform .9s cubic-bezier(.34,1.35,.64,1),filter .7s var(--ease-out);transition-delay:calc(var(--i,0)*80ms)}
+.js .bento .rv.in,.js .sk-grid .rv.in,.js .feat .rv.in,.js .tools.in .tool,.js .chips.in li,.js .tl li.rv.in{opacity:1;transform:none;filter:blur(0)}
+.js .tools.rv,.js .chips.rv{opacity:1;transform:none;filter:none}
+
+/* ---------- Liquid Glass ---------- */
+.glass{position:relative;isolation:isolate;
+  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.42));
+  backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);
+  border:1px solid rgba(255,255,255,.75);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.04),0 20px 50px -30px rgba(30,30,40,.35)}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .4s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.7),transparent 45%)}
+.glass:hover::after{opacity:1}
+.dark .glass,.glass.on-dark{background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border-color:rgba(255,255,255,.12);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 24px 60px -30px rgba(0,0,0,.8)}
+.dark .glass::after,.glass.on-dark::after{background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.12),transparent 45%)}
+.t-a.glass{background:linear-gradient(180deg,rgba(30,30,32,.92),rgba(10,10,12,.88));border-color:rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 30px 60px -30px rgba(0,0,0,.6)}
+.t-a.glass::after{background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,160,90,.22),transparent 50%)}
+
+/* orbes de color detrás del vidrio */
+.has-orbs{overflow:hidden;isolation:isolate}
+.orbs{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 18%,#000 82%,transparent 100%)}
+.orbs i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:drift 22s ease-in-out infinite alternate}
+.orbs i:nth-child(1){width:44vw;height:44vw;max-width:620px;max-height:620px;left:-8%;top:8%;background:#ffc79c}
+.orbs i:nth-child(2){width:38vw;height:38vw;max-width:540px;max-height:540px;right:-6%;top:30%;background:#a9d4ff;animation-duration:26s;animation-delay:-6s}
+.orbs i:nth-child(3){width:30vw;height:30vw;max-width:440px;max-height:440px;left:34%;bottom:-10%;background:#b8f0d4;animation-duration:30s;animation-delay:-12s}
+.dark .orbs i{opacity:.22}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(6%,-8%) scale(1.12)}100%{transform:translate(-6%,6%) scale(.95)}}
+
+/* demo de YouTube */
+.demo{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:20px;padding:clamp(20px,2.4vw,28px);border-radius:var(--r-tile)}
+.demo-text{padding-left:clamp(4px,1vw,16px)}
+.demo h3{font-size:clamp(26px,2.8vw,36px);letter-spacing:-.035em;margin-bottom:12px}
+.demo p{color:var(--ink-2);font-size:17px;margin-bottom:8px;max-width:38ch}
+.yt{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000}
+.yt img,.yt iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.yt img{transition:transform .8s var(--ease),filter .5s}
+.yt:hover img{transform:scale(1.03);filter:brightness(.85)}
+.yt-play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;border:0;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.08)),rgba(20,20,22,.35);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 .5px rgba(255,255,255,.3),0 12px 30px -8px rgba(0,0,0,.5);transition:transform .35s var(--ease)}
+.yt-play svg{width:34px;height:34px;margin-left:4px}
+.yt:hover .yt-play{transform:scale(1.08)}
+.yt-play:active{transform:scale(.95)}
+.demo p b{color:var(--ink);font-weight:600}
+.demo--short{grid-template-columns:1fr minmax(0,340px);justify-content:space-between;gap:clamp(24px,6vw,96px);padding-left:clamp(24px,4vw,56px)}
+.demo--short .demo-text{padding-left:0}
+.demo--short p{max-width:46ch}
+.yt--short{aspect-ratio:9/16;width:100%;max-width:340px;justify-self:end;border-radius:24px}
+@media (max-width:834px){.demo,.demo--short{grid-template-columns:1fr}.demo-text{padding:8px 4px 0}.demo--short{padding-left:clamp(20px,2.4vw,28px)}.yt--short{justify-self:center;max-width:320px}}
+
+/* contador de cifras */
+.num [data-count]{font-variant-numeric:tabular-nums}
+
+/* lightbox */
+dialog.lb{padding:0;border:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh;overflow:visible}
+dialog.lb::backdrop{background:rgba(0,0,0,.84);backdrop-filter:blur(8px)}
+dialog.lb img{max-width:min(1200px,94vw);max-height:84vh;width:auto;border-radius:18px;background:#fff}
+dialog.lb[open]{animation:lbIn .4s var(--ease-out)}
+@keyframes lbIn{from{opacity:0;transform:scale(.96)}}
+.lb-close{position:absolute;right:0;top:-56px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:22px;line-height:1;transition:background-color .2s}
+.lb-close:hover{background:rgba(255,255,255,.26)}
+
+/* responsive */
+@media (max-width:1068px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .t-a{grid-column:1/-1}.t-b,.t-c,.t-d,.t-e{grid-column:span 1}
+  .sk-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:834px){
+  :root{--nav-h:48px}
+  .nav-links{position:fixed;inset:var(--nav-h) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;padding:12px var(--gutter) 28px;background:rgba(22,22,23,.97);color:var(--on-night);transform:translateY(-10px);opacity:0;visibility:hidden;transition:opacity .25s,transform .35s var(--ease),visibility 0s .35s}
+  .nav.light .nav-links{background:rgba(251,251,253,.98);color:var(--ink)}
+  .nav-links.open{opacity:1;transform:none;visibility:visible;transition:opacity .25s,transform .35s var(--ease)}
+  .nav-links a:not(.btn){font-size:24px;font-weight:600;opacity:1;padding:14px 0;border-bottom:1px solid rgba(128,128,128,.25)}
+  .nav-links .btn{margin-top:20px;min-height:48px;font-size:17px}
+  .menu-btn{display:block}
+  .exp-grid{grid-template-columns:1fr}
+  .feat{grid-template-columns:1fr}
+  .ag{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;height:auto}
+  .ag .big{grid-column:1/-1;grid-row:auto;aspect-ratio:4/3}
+  .ag .sk3d{aspect-ratio:1/1}
+  .hl-head{flex-direction:column;align-items:start}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .bento,.sk-grid{grid-template-columns:1fr}
+  .t-b,.t-c,.t-d,.t-e{grid-column:1/-1}
+  .tile{min-height:200px}
+  .specs{grid-template-columns:1fr;gap:36px}
+  .grid-2{grid-template-columns:1fr}
+  .ag{grid-template-columns:1fr}
+  .tl li{grid-template-columns:1fr;gap:4px}
+  .hero .actions .btn{width:100%}
+  .contact .actions .btn{flex:1 1 100%}
+  .copy{margin:14px 0 0}
+  .card{flex-direction:column;gap:4px}
+  .pill{font-size:13px}
+  .dock{bottom:14px}
+  .dock a{padding:0 13px}
+  .dock a span{display:none}
+  .dock a b{opacity:1}
+}
+/* Las animaciones de aparición se mantienen siempre (pedido explícito); solo se quita el desplazamiento suave del scroll. */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="nav" id="nav">
+  <div class="wrap-wide">
+    <a class="brand" href="#inicio">Benjamín Garrido</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú"><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks" aria-label="Principal">
+      <a href="#resumen">Resumen</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#conocimientos">Conocimientos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn" href="cv.pdf" download="Benjamin-Garrido-CV.pdf">Descargar CV</a>
+    </nav>
+  </div>
+</header>
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+<nav class="dock" id="dock" aria-label="Proyectos">
+  <a href="#proyectos"><b>01</b><span>Detección</span></a>
+  <a href="#addcars"><b>02</b><span>AddCars</span></a>
+  <a href="#medeck"><b>03</b><span>MeDeck</span></a>
+  <a href="#agrosense"><b>04</b><span>AgroSense</span></a>
+  <a href="#volta"><b>05</b><span>Volta</span></a>
+</nav>
+
+<main id="contenido">
+
+<section class="hero dark" id="inicio" data-nav="dark">
+  <div class="wrap">
+    <p class="name h-in" style="--d:0">Benjamín Garrido</p>
+    <h1 class="h-in" style="--d:1"><span>Ingeniería</span><span class="grad">en Informática.</span></h1>
+    <p class="intro h-in" style="--d:2">Software, bases de datos y hardware que funcionan juntos. Tercer año en la <b>Universidad Bernardo O'Higgins</b>.</p>
+    <div class="actions h-in" style="--d:3">
+      <a class="btn" href="#proyectos">Ver proyectos</a>
+      <a class="more" href="cv.pdf" download="Benjamin-Garrido-CV.pdf"><span>Descargar CV</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a>
+    </div>
+    <span class="pill h-in" style="--d:4"><i aria-hidden="true"></i>Disponible para práctica profesional desde diciembre de 2026</span>
+  </div>
+</section>
+
+<section class="grey pad has-orbs" id="resumen" data-nav="light">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap-wide">
+    <div class="hl-head">
+      <h2 class="headline-m rv split">Resumen rápido.</h2>
+      <a class="more rv" href="#proyectos"><span>Ir a los proyectos</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a>
+    </div>
+    <div class="bento">
+      <article class="glass tile t-a rv">
+        <span class="k">De los planos al código</span>
+        <div>
+          <p class="v grad">Precisión.</p>
+          <p>Antes de programar fui <b>dibujante técnico</b>. Hoy aplico ese mismo cuidado a clases en Java, consultas SQL y firmware para Arduino.</p>
+        </div>
+      </article>
+      <article class="glass tile t-b rv" style="--d:1">
+        <span class="k">Proyectos en equipo</span>
+        <div><p class="v">5</p><p>Software, IoT, hardware clínico, machine learning y UI/UX.</p></div>
+      </article>
+      <article class="glass tile t-c rv">
+        <span class="k">Lenguajes</span>
+        <div>
+          <div class="lang-row">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/java/java-original.svg" alt="Java" width="34" height="34">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/c/c-original.svg" alt="C" width="34" height="34">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/cplusplus/cplusplus-original.svg" alt="C++" width="34" height="34">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="SQL con MySQL" width="34" height="34">
+          </div>
+          <p>Java con POO, C con punteros, C++ en Arduino y SQL.</p>
+        </div>
+      </article>
+      <article class="glass tile t-d rv" style="--d:1">
+        <span class="k">Cloud</span>
+        <div><p class="v">AWS</p><p><b>Cloud Foundations</b>, curso oficial completado.</p></div>
+      </article>
+      <article class="glass tile t-e rv" style="--d:2">
+        <span class="k">Método</span>
+        <div><p class="v">Kanban</p><p>Tableros en Trello y trabajo en célula ágil.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 01 DETECCIÓN -->
+<section class="dark chapter has-orbs" id="proyectos" data-nav="dark">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Proyectos · 01</span>
+      <span class="status rv"><i aria-hidden="true"></i>En desarrollo</span>
+      <h2 class="headline rv split">Si alguien se acerca,<br><span class="grad">suena la alarma.</span></h2>
+      <p class="intro rv">Detección de <b>personas y maquinaria pesada</b> con machine learning. El sistema define zonas seguras y de riesgo, y alerta cuando un trabajador se acerca a un punto de peligro, como la garra de una excavadora.</p>
+    </div>
+  </div>
+  <div class="wrap-wide">
+    <div class="player rv" id="player">
+      <svg viewBox="0 0 960 520" role="img" aria-labelledby="pvT">
+        <title id="pvT">Simulación: un trabajador se acerca a la excavadora y se activa la alarma; al alejarse, la alarma se apaga</title>
+        <defs>
+          <pattern id="gr" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1b1b1d" stroke-width="1"/></pattern>
+          <pattern id="st" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="16" fill="#ff453a"/></pattern>
+          <linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121214"/><stop offset="1" stop-color="#1d1d20"/></linearGradient>
+          <radialGradient id="vg" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>
+          <radialGradient id="edgeG" cx=".5" cy=".5" r=".72"><stop offset=".7" stop-color="#ff453a" stop-opacity="0"/><stop offset="1" stop-color="#ff453a" stop-opacity=".45"/></radialGradient>
+        </defs>
+        <rect width="960" height="520" fill="url(#fl)"/>
+        <rect width="960" height="520" fill="url(#gr)"/>
+        <path d="M0 420 L960 392" stroke="#2a2a2e" stroke-width="2"/>
+        <rect class="zone-fill" x="520" y="170" width="410" height="300" rx="6" fill="url(#st)" fill-opacity=".1" stroke="#ff453a" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="536" y="456" fill="#ff6961" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.5">ZONA DE RIESGO</text>
+        <rect x="30" y="250" width="300" height="220" rx="6" fill="#30d158" fill-opacity=".05" stroke="#30d158" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="46" y="456" fill="#30d158" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.5">ZONA SEGURA</text>
+        <g>
+          <rect x="650" y="372" width="250" height="38" rx="19" fill="#3a3a3d"/>
+          <circle cx="672" cy="391" r="13" fill="#5a5a5e"/><circle cx="878" cy="391" r="13" fill="#5a5a5e"/><circle cx="775" cy="391" r="9" fill="#4a4a4e"/>
+          <rect x="676" y="306" width="206" height="66" rx="8" fill="#e0a52f"/>
+          <rect x="778" y="246" width="84" height="66" rx="8" fill="#f0b53a"/>
+          <rect x="790" y="258" width="58" height="32" rx="4" fill="#1a2a33"/>
+          <path d="M702 312 L600 226 L616 212 L722 300 Z" fill="#d49a28"/>
+          <path d="M600 226 L548 300 L566 310 L616 240 Z" fill="#c48d22"/>
+          <path d="M538 296 L586 320 L572 352 L528 344 Z" fill="#9a9aa0"/>
+        </g>
+        <rect x="520" y="200" width="392" height="216" fill="none" stroke="#ffd60a" stroke-width="2.5"/>
+        <rect x="520" y="178" width="178" height="23" fill="#ffd60a"/>
+        <text x="528" y="195" fill="#111" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700">excavadora · 0.91</text>
+        <g id="worker" transform="translate(70,0)">
+          <g class="siren" transform="translate(35,340)"><circle r="24" fill="none" stroke="#ff453a" stroke-width="3"/><circle r="24" fill="none" stroke="#ff453a" stroke-width="3"/><circle r="24" fill="none" stroke="#ff453a" stroke-width="3"/></g>
+          <circle cx="35" cy="296" r="13" fill="#e8d5c4"/>
+          <path d="M20 291 Q35 271 50 291 Z" fill="#ffd60a"/>
+          <rect x="18" y="312" width="34" height="50" rx="11" fill="#ff9f0a"/>
+          <rect x="18" y="330" width="34" height="5" fill="#f5f5f7" opacity=".9"/>
+          <rect id="legL" x="21" y="358" width="11" height="40" rx="5" fill="#636366"/>
+          <rect id="legR" x="38" y="358" width="11" height="40" rx="5" fill="#636366"/>
+          <rect id="pbox" x="2" y="276" width="66" height="128" fill="none" stroke="#30d158" stroke-width="2.5"/>
+          <rect id="plab" x="2" y="254" width="128" height="23" fill="#30d158"/>
+          <text x="10" y="271" fill="#111" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700">persona · 0.94</text>
+        </g>
+        <rect width="960" height="520" fill="url(#vg)" pointer-events="none"/>
+        <rect class="flash-edge" width="960" height="520" fill="url(#edgeG)" pointer-events="none"/>
+        <circle cx="34" cy="34" r="6" fill="#ff453a"><animate attributeName="opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
+        <text x="50" y="39" fill="#a1a1a6" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600" letter-spacing="1">CAM 02 · FAENA NORTE</text>
+        <text id="dist" x="926" y="39" text-anchor="end" fill="#a1a1a6" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600">Distancia a la zona: 8,9 m</text>
+        <g class="alarm-banner">
+          <rect x="290" y="62" width="380" height="46" rx="23" fill="#ff453a"/>
+          <text x="480" y="91" text-anchor="middle" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing=".5">ALARMA · PERSONA EN ZONA DE RIESGO</text>
+        </g>
+      </svg>
+      <span class="state glass-pill" id="pvState"><i aria-hidden="true"></i><span>Zona despejada</span></span>
+      <span class="live glass-pill" aria-hidden="true"><i></i>Simulación en bucle</span>
+    </div>
+    <div class="tools rv">
+      <span class="glass tool"><img src="https://cdn.simpleicons.org/googlecolab" alt="" width="18" height="18">Google Colab</span>
+      <span class="glass tool">Detección de objetos</span>
+      <span class="glass tool">Zonas seguras y de riesgo</span>
+      <span class="glass tool">Desarrollo de Soluciones Inteligentes y ML</span>
+    </div>
+    <div class="specs">
+      <div class="rv"><p class="lbl">Detecta</p><p class="num">2 <small>clases</small></p><p class="cap">personas y maquinaria pesada</p></div>
+      <div class="rv" style="--d:1"><p class="lbl">Define</p><p class="num">2 <small>zonas</small></p><p class="cap">segura y de riesgo en la imagen</p></div>
+      <div class="rv" style="--d:2"><p class="lbl">Responde con</p><p class="num">1 <small>alarma</small></p><p class="cap">que se apaga cuando la persona se aleja</p></div>
+    </div>
+    <div class="next rv"><a class="more" href="#addcars"><span>Siguiente: AddCars</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 02 ADDCARS -->
+<section class="chapter has-orbs" id="addcars" data-nav="light">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Proyectos · 02 · Octubre 2025</span>
+      <h2 class="headline rv split">AddCars.<br><span style="color:var(--ink-2)">Una rentadora entera, en Java.</span></h2>
+      <p class="intro rv">Software de escritorio para empleados y administradores: <b>login por roles</b>, arriendos, pagos, contratos y flota. Arquitectura <b>MVC con patrón DAO</b> sobre una base MySQL.</p>
+    </div>
+  </div>
+  <div class="wrap-wide">
+    <figure class="media ac-main scale-in rv-media"><img src="img/addcars-menu.jpg" alt="Menú principal de AddCars con filtros por año, categoría, precio y sucursal y la lista de vehículos" width="894" height="596" loading="lazy"><button aria-label="Ampliar menú principal de AddCars"></button></figure>
+    <div class="grid-2">
+      <figure class="media contain rv"><img src="img/addcars-er.jpg" alt="Modelo entidad-relación de la base de datos de AddCars" width="1591" height="857" loading="lazy"><button aria-label="Ampliar modelo de datos"></button></figure>
+      <figure class="media code-tile rv" style="--d:1"><img src="img/addcars-dao.jpg" alt="Código de la interfaz DAO genérica y la clase VehiculoDAO" width="1515" height="1421" loading="lazy"><button aria-label="Ampliar código DAO"></button></figure>
+    </div>
+    <div class="demo glass rv">
+      <div class="demo-text">
+        <span class="eyebrow" style="margin-bottom:8px">Demo en video</span>
+        <h3>Mírala funcionar en vivo.</h3>
+        <p>Distintos usuarios trabajando sobre la misma base de datos: cada arriendo, pago o cambio de vehículo se refleja en MySQL en tiempo real.</p>
+        <a class="more" href="https://www.youtube.com/watch?v=3wDmfwaGXvk" target="_blank" rel="noopener"><span>Ver en YouTube</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a>
+      </div>
+      <div class="yt" id="ytAddcars" data-yt="3wDmfwaGXvk">
+        <img src="https://i.ytimg.com/vi/3wDmfwaGXvk/maxresdefault.jpg" alt="Miniatura de la demo de AddCars" width="1280" height="720" loading="lazy">
+        <button class="yt-play" type="button" aria-label="Reproducir la demo de AddCars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
+      </div>
+    </div>
+    <div class="tools rv">
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/java/java-original.svg" alt="" width="18" height="18">Java Swing</span>
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" width="18" height="18">MySQL</span>
+      <span class="glass tool"><img src="https://cdn.simpleicons.org/apachenetbeanside" alt="" width="18" height="18">NetBeans</span>
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/trello/trello-original.svg" alt="" width="18" height="18">Trello</span>
+    </div>
+    <div class="specs">
+      <div class="rv"><p class="lbl">Base de datos</p><p class="num">15 <small>tablas</small></p><p class="cap">CRUD completo, JOIN, subconsultas y filtros dinámicos</p></div>
+      <div class="rv" style="--d:1"><p class="lbl">Arquitectura</p><p class="num">MVC</p><p class="cap">con DAO, herencia, polimorfismo y encapsulamiento</p></div>
+      <div class="rv" style="--d:2"><p class="lbl">Equipo</p><p class="num">6 <small>personas</small></p><p class="cap">organizadas con Kanban en Trello</p></div>
+    </div>
+    <div class="next rv"><a class="more" href="#medeck"><span>Siguiente: MeDeck</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 03 MEDECK -->
+<section class="dark chapter has-orbs" id="medeck" data-nav="dark">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Proyectos · 03 · Hardware clínico</span>
+      <h2 class="headline rv split">MeDeck.<br><span class="grad">Un toque. Ficha abierta.</span></h2>
+      <p class="intro rv">Estación de asistencia telemédica tipo StreamDeck: <b>5 teclas y 3 potenciómetros</b> para la ficha médica, signos vitales, receta digital, siguiente paciente y código de emergencia.</p>
+    </div>
+  </div>
+  <div class="wrap-wide">
+    <figure class="media md-main scale-in rv-media"><img src="img/medeck-clinica.jpg" alt="MeDeck sobre el carro clínico, junto al monitor de signos vitales" width="1024" height="609" loading="lazy"><button aria-label="Ampliar MeDeck en la clínica"></button></figure>
+    <div class="grid-2">
+      <figure class="media rv"><img src="img/medeck-carcasa.jpg" alt="Modelo 3D de la carcasa de MeDeck en SketchUp" width="726" height="444" loading="lazy"><button aria-label="Ampliar carcasa 3D"></button></figure>
+      <figure class="media contain rv" style="--d:1"><img src="img/medeck-circuito.jpg" alt="Circuito de MeDeck simulado en Tinkercad" width="1350" height="593" loading="lazy"><button aria-label="Ampliar circuito en Tinkercad"></button></figure>
+    </div>
+    <div class="feat">
+      <article class="glass tile rv"><h3>Sin drivers.</h3><p>Firmware en C++ que emula teclado y mouse (HID): se conecta y funciona.</p></article>
+      <article class="glass tile rv" style="--d:1"><h3>Control analógico.</h3><p>Los potenciómetros manejan scroll, zoom y temporizador.</p></article>
+      <article class="glass tile rv" style="--d:2"><h3>Diseñado y simulado.</h3><p>Circuito en Tinkercad y carcasa modelada en SketchUp.</p></article>
+    </div>
+    <div class="specs">
+      <div class="rv"><p class="lbl">Tiempo administrativo</p><p class="num grad">−40%</p><p class="cap">reducción estimada en la operación</p></div>
+      <div class="rv" style="--d:1"><p class="lbl">Fabricación</p><p class="num">$120.100</p><p class="cap">costo por unidad en CLP</p></div>
+      <div class="rv" style="--d:2"><p class="lbl">Entradas</p><p class="num">5 + 3</p><p class="cap">teclas mecánicas y potenciómetros</p></div>
+    </div>
+    <div class="next rv"><a class="more" href="#agrosense"><span>Siguiente: AgroSense</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 04 AGROSENSE -->
+<section class="chapter has-orbs" id="agrosense" data-nav="light">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Proyectos · 04 · Robótica y Tecnologías Emergentes</span>
+      <h2 class="headline rv split">AgroSense.<br><span style="color:var(--ink-2)">Riega solo cuando hace falta.</span></h2>
+      <p class="intro rv">Riego automatizado para invernadero. Lo simulamos en <b>Tinkercad con un Arduino Uno R3</b> y construimos la maqueta real con un <b>ESP32</b>. Mide la humedad del suelo y activa bomba, electroválvulas y aspersores por relé, con dosificación de nutrientes.</p>
+    </div>
+  </div>
+  <div class="wrap-wide">
+    <div class="ag">
+      <figure class="media big scale-in rv-media"><img src="img/agro-invernadero.jpg" alt="Invernadero con camas de cultivo, tuberías de riego y panel de control de AgroSense" width="1391" height="1131" loading="lazy"><button aria-label="Ampliar invernadero"></button></figure>
+      <figure class="media sk3d rv"><img src="img/agro-sketchup.jpg" alt="Modelo 3D original de AgroSense en SketchUp: estructura del estanque, panel de control y tuberías" width="1029" height="703" loading="lazy"><button aria-label="Ampliar modelo 3D"></button></figure>
+      <figure class="media sk3d rv" style="--d:1"><img src="img/agro-sketchup-detalle.jpg" alt="Detalle 3D de las tuberías y la electroválvula de AgroSense" width="687" height="595" loading="lazy"><button aria-label="Ampliar detalle 3D"></button></figure>
+    </div>
+    <div class="demo demo--short glass rv">
+      <div class="demo-text">
+        <span class="eyebrow" style="margin-bottom:8px">La maqueta en video</span>
+        <h3>De Tinkercad a la mesa de trabajo.</h3>
+        <p>Primero simulamos el circuito en Tinkercad con un Arduino Uno R3. Después armamos la maqueta real con un <b>ESP32</b>: sensores de humedad, relé, bomba y electroválvulas funcionando juntos.</p>
+        <a class="more" href="https://youtube.com/shorts/Gj9sHWE--5A" target="_blank" rel="noopener"><span>Ver en YouTube</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a>
+      </div>
+      <div class="yt yt--short" data-yt="Gj9sHWE--5A" data-title="Maqueta de AgroSense">
+        <img src="https://i.ytimg.com/vi/Gj9sHWE--5A/oardefault.jpg" alt="Miniatura del video de la maqueta de AgroSense" width="478" height="850" loading="lazy">
+        <button class="yt-play" type="button" aria-label="Reproducir el video de la maqueta de AgroSense"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
+      </div>
+    </div>
+    <div class="tools rv">
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/arduino/arduino-original.svg" alt="" width="18" height="18">Maqueta con ESP32</span>
+      <span class="glass tool">Simulación con Uno R3</span>
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/cplusplus/cplusplus-original.svg" alt="" width="18" height="18">C++</span>
+      <span class="glass tool"><img src="https://cdn.simpleicons.org/sketchup" alt="" width="18" height="18">SketchUp</span>
+      <span class="glass tool"><img src="https://cdn.simpleicons.org/tinkercad" alt="" width="18" height="18">Tinkercad</span>
+    </div>
+    <div class="specs">
+      <div class="rv"><p class="lbl">Estanque</p><p class="num">1.200 <small>L</small></p><p class="cap">con sensor de nivel</p></div>
+      <div class="rv" style="--d:1"><p class="lbl">Ahorro de agua</p><p class="num">20–30%</p><p class="cap">estimado según el estudio</p></div>
+      <div class="rv" style="--d:2"><p class="lbl">Retorno de inversión</p><p class="num">18–24 <small>meses</small></p><p class="cap">según el estudio de costos</p></div>
+    </div>
+    <div class="next rv"><a class="more" href="#volta"><span>Siguiente: Volta</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 05 VOLTA (solo descripción) -->
+<section class="grey chapter has-orbs" id="volta" data-nav="light">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow rv">Proyectos · 05 · Diseño UI/UX</span>
+      <p class="volta-word rv" aria-hidden="true">Volta.</p>
+      <h2 class="headline-m rv split">Sitio para una marca de ropa deportiva.</h2>
+      <p class="intro rv">Navegación, paleta de colores y mockups en <b>Figma</b>, llevados a <b>HTML y CSS</b> (con apoyo de IA) con diseño responsive. Trabajo colaborativo en un equipo de cinco personas.</p>
+    </div>
+  </div>
+  <div class="wrap-wide">
+    <div class="feat" style="margin-top:0">
+      <article class="glass tile rv"><h3>Accesible.</h3><p>Contraste, jerarquía y usabilidad cuidados desde el primer mockup.</p></article>
+      <article class="glass tile rv" style="--d:1"><h3>Responsive.</h3><p>Media queries para que la tienda funcione igual en el teléfono.</p></article>
+      <article class="glass tile rv" style="--d:2"><h3>Ético.</h3><p>Sin patrones oscuros: el usuario siempre sabe qué está comprando.</p></article>
+    </div>
+    <div class="tools rv">
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg" alt="" width="18" height="18">Figma</span>
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="" width="18" height="18">HTML</span>
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="" width="18" height="18">CSS</span>
+      <span class="glass tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/trello/trello-original.svg" alt="" width="18" height="18">Trello</span>
+    </div>
+    <div class="specs">
+      <div class="rv"><p class="lbl">Equipo</p><p class="num">5 <small>personas</small></p><p class="cap">en Figma y Trello</p></div>
+      <div class="rv" style="--d:1"><p class="lbl">Flujo</p><p class="num">Figma → Web</p><p class="cap">del mockup a la maqueta en código</p></div>
+      <div class="rv" style="--d:2"><p class="lbl">Patrones oscuros</p><p class="num">0</p><p class="cap">en navegación y compra</p></div>
+    </div>
+    <div class="next rv">
+      <a class="btn" href="#contacto">Contactar</a>
+      <a class="more" href="cv.pdf" download="Benjamin-Garrido-CV.pdf"><span>Descargar CV</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 2l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONOCIMIENTOS -->
+<section class="grey pad has-orbs" id="conocimientos" data-nav="light" style="padding-top:clamp(40px,5vw,72px)">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap-wide">
+    <div class="hl-head">
+      <h2 class="headline-m rv split">Conocimientos técnicos.</h2>
+      <p class="intro rv" style="max-width:420px;font-size:19px">Cada herramienta aparece en al menos uno de los proyectos.</p>
+    </div>
+    <div class="sk-grid">
+      <article class="glass sk rv"><div class="ics"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/java/java-original.svg" alt="Java" width="36" height="36"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/c/c-original.svg" alt="C" width="36" height="36"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/cplusplus/cplusplus-original.svg" alt="C++" width="36" height="36"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/php/php-original.svg" alt="PHP" width="36" height="36"></div><h3>Lenguajes</h3><p>Java (POO), C (punteros), C++ (Arduino), PHP, SQL, HTML y CSS.</p></article>
+      <article class="glass sk rv" style="--d:1"><div class="ics"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="MySQL" width="36" height="36"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/oracle/oracle-original.svg" alt="Oracle Data Modeler" width="36" height="36"></div><h3>Bases de datos</h3><p>Modelado en Data Modeler, MySQL, JOIN, subconsultas y filtros dinámicos.</p></article>
+      <article class="glass sk rv" style="--d:2"><div class="ics"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" width="36" height="36"></div><h3>Cloud</h3><p>AWS Cloud Foundations, curso oficial completado.</p></article>
+      <article class="glass sk rv" style="--d:3"><div class="ics"><img src="https://cdn.simpleicons.org/googlecolab" alt="Google Colab" width="36" height="36"></div><h3>Datos e IA</h3><p>Introducción a la IA, análisis de datos en Google Colab y detección de objetos.</p></article>
+      <article class="glass sk rv"><div class="ics"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/arduino/arduino-original.svg" alt="Arduino" width="36" height="36"><span class="txt">HID</span><span class="txt">RELÉ</span></div><h3>Hardware e IoT</h3><p>Arduino ESP32 y Uno R3, sensores, relés, electroválvulas y emulación HID.</p></article>
+      <article class="glass sk rv" style="--d:1"><div class="ics"><img src="https://cdn.simpleicons.org/sketchup" alt="SketchUp" width="36" height="36"><img src="https://cdn.simpleicons.org/tinkercad" alt="Tinkercad" width="36" height="36"></div><h3>Diseño 3D y simulación</h3><p>Carcasas y ensamblajes en SketchUp; circuitos en Tinkercad.</p></article>
+      <article class="glass sk rv" style="--d:2"><div class="ics"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/figma/figma-original.svg" alt="Figma" width="36" height="36"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/wordpress/wordpress-plain.svg" alt="WordPress" width="36" height="36"></div><h3>Diseño UI/UX</h3><p>Interfaces y prototipos en Figma, diseño responsive, accesibilidad y WordPress.</p></article>
+      <article class="glass sk rv" style="--d:3"><div class="ics"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg" alt="GitHub" width="36" height="36"><img src="https://cdn.simpleicons.org/apachenetbeanside" alt="NetBeans" width="36" height="36"><img src="https://cdn.simpleicons.org/xampp" alt="XAMPP" width="36" height="36"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/trello/trello-original.svg" alt="Trello" width="36" height="36"></div><h3>Herramientas y método</h3><p>GitHub, NetBeans, XAMPP y Kanban en Trello.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section class="pad has-orbs" id="experiencia" data-nav="light">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap-wide">
+    <div class="exp-grid">
+      <div>
+        <span class="eyebrow rv">Experiencia laboral</span>
+        <h2 class="headline-m rv split" style="margin-bottom:40px">Gente, plazos<br>y detalle.</h2>
+        <ol class="tl">
+          <li class="rv"><time>Dic 2025</time><div><h3>Banquetera</h3><p class="org">Tinto</p><p>Atención directa al público en eventos, montaje de mesas y coordinación de pedidos en tiempo real.</p></div></li>
+          <li class="rv"><time>Abr–Jun 2024 · Ene–Mar 2025</time><div><h3>Atención al cliente y stock</h3><p class="org">Emprendimiento familiar</p><p>Punto de venta (POS) con transacciones, control de stock y reposición de productos críticos.</p></div></li>
+          <li class="rv"><time>Dic 2023 – Feb 2024</time><div><h3>Dibujante técnico</h3><p class="org">Municipalidad de Las Condes · Estudios Urbanos</p><p>Confección y revisión de planos, levantamientos en terreno y validación de proyectos con el equipo profesional.</p></div></li>
+        </ol>
+      </div>
+      <div class="side">
+        <div class="side-block rv">
+          <h3 class="k">Educación</h3>
+          <div class="glass card"><div><h4>Ingeniería en Informática</h4><p>Universidad Bernardo O'Higgins · tercer año</p></div><span class="yr">2024 – 2027</span></div>
+          <div class="glass card"><div><h4>Dibujante Técnico</h4><p>Colegio Polivalente Raulí</p></div><span class="yr">2022 – 2023</span></div>
+        </div>
+        <div class="side-block rv">
+          <h3 class="k">Certificación</h3>
+          <div class="glass card aws"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" width="46" height="46"><div><h4>AWS Cloud Foundations</h4><p>Curso oficial de AWS, completado</p></div></div>
+        </div>
+        <div class="side-block rv">
+          <h3 class="k">Competencias</h3>
+          <ul class="chips rv"><li>Proactividad</li><li>Trabajo en equipo</li><li>Resolución de problemas</li><li>Comunicación efectiva</li><li>Puntualidad</li><li>Atención al detalle</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="dark contact pad has-orbs" id="contacto" data-nav="dark">
+  <div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <span class="eyebrow rv">Contacto</span>
+    <h2 class="rv split">Práctica desde<br><span class="grad">diciembre 2026.</span></h2>
+    <p class="rv"><a class="mail" href="mailto:benjamin1gnacio1264@gmail.com">benjamin1gnacio1264@gmail.com</a><button class="copy" id="copyBtn" type="button">Copiar</button></p>
+    <div class="actions rv">
+      <a class="btn" href="cv.pdf" download="Benjamin-Garrido-CV.pdf">Descargar CV</a>
+      <a class="btn btn--line" href="https://www.linkedin.com/in/benjamingarridoing" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn--line" href="https://github.com/4Noisy" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap-wide">
+    <span>Copyright © <span id="yr">2026</span> Benjamín Garrido. Puente Alto, Región Metropolitana.</span>
+    <a href="#inicio">Volver arriba</a>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Imagen ampliada">
+  <button class="lb-close" id="lbClose" aria-label="Cerrar"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+  <img id="lbImg" src="data:," alt="">
+</dialog>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  root.classList.add('js');
+
+  var hero=d.querySelector('.hero');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.add('ready')})});
+
+  // títulos: dividir en palabras para animarlas una a una
+  d.querySelectorAll('.split').forEach(function(h){
+    var n=0;
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(c){
+        if(c.nodeType===3){
+          var frag=d.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(function(tk){
+            if(!tk)return;
+            if(/^\s+$/.test(tk)){frag.appendChild(d.createTextNode(tk));return}
+            var s=d.createElement('span');s.className='w';s.style.setProperty('--w',n++);s.textContent=tk;frag.appendChild(s);
+          });
+          c.parentNode.replaceChild(frag,c);
+        } else if(c.nodeType===1 && c.tagName!=='BR'){ walk(c); }
+      });
+    })(h);
+  });
+
+  // stagger dentro de grupos de chips / timeline
+  d.querySelectorAll('.tools,.chips,.tl').forEach(function(g){Array.prototype.forEach.call(g.children,function(c,i){c.style.setProperty('--i',i)})});
+  d.querySelectorAll('.tools').forEach(function(g){g.classList.add('rv')});
+  d.querySelectorAll('.rv-media').forEach(function(m){m.classList.add('rv')});
+
+  // contador de cifras (15, 1.200, −40%, $120.100, 6...)
+  function prepCount(el){
+    var tn=el.firstChild; if(!tn||tn.nodeType!==3)return;
+    var m=tn.textContent.match(/^(\s*[−$]?)(\d{1,3}(?:\.\d{3})*|\d+)(%?\s*)$/); if(!m)return;
+    if(/[–+]/.test(el.textContent))return;
+    var target=parseInt(m[2].replace(/\./g,''),10), sp=d.createElement('span');
+    sp.setAttribute('data-count',target); sp.textContent=m[2];
+    el.replaceChild(d.createTextNode(m[1]),tn); el.insertBefore(sp,el.childNodes[1]||null);
+    if(m[3]) sp.after(d.createTextNode(m[3]));
+  }
+  d.querySelectorAll('.specs .num, .tile .v').forEach(prepCount);
+  function runCount(sp){
+    var to=+sp.getAttribute('data-count'), t0=null, dur=1400;
+    function fmtN(v){return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+    function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-k,4);sp.textContent=fmtN(Math.round(to*e));if(k<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  }
+
+  // brillo de vidrio que sigue al puntero
+  d.querySelectorAll('.glass').forEach(function(g){
+    g.addEventListener('pointermove',function(e){var r=g.getBoundingClientRect();g.style.setProperty('--mx',(e.clientX-r.left)+'px');g.style.setProperty('--my',(e.clientY-r.top)+'px')});
+  });
+
+  // reveal on scroll
+  var rvs=d.querySelectorAll('.rv');
+  function onIn(el){el.classList.add('in');el.querySelectorAll('[data-count]').forEach(runCount)}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){onIn(e.target);io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    rvs.forEach(function(el){io.observe(el)});
+  } else rvs.forEach(onIn);
+
+  // stagger index inside grids
+  d.querySelectorAll('.bento,.sk-grid,.feat').forEach(function(g){Array.prototype.forEach.call(g.children,function(c,i){c.style.setProperty('--i',i)})});
+
+  // nav theme + media scale + progress + chapter dock
+  var nav=d.getElementById('nav'), secs=d.querySelectorAll('[data-nav]'), scs=d.querySelectorAll('.scale-in');
+  var bar=d.getElementById('progressBar'), dock=d.getElementById('dock'), dockLinks=dock.querySelectorAll('a');
+  var chapters=['proyectos','addcars','medeck','agrosense','volta'].map(function(id){return d.getElementById(id)});
+  function frame(){
+    var y=nav.offsetHeight/2, theme='dark';
+    secs.forEach(function(s){var r=s.getBoundingClientRect(); if(r.top<=y&&r.bottom>y)theme=s.getAttribute('data-nav')});
+    nav.classList.toggle('light',theme==='light');
+    var max=root.scrollHeight-innerHeight; bar.style.setProperty('--sp',max>0?(scrollY/max).toFixed(4):0);
+    var mid=innerHeight*0.5, cur=-1;
+    chapters.forEach(function(c,i){var r=c.getBoundingClientRect(); if(r.top<=mid&&r.bottom>mid)cur=i});
+    dock.classList.toggle('show',cur>-1);
+    dockLinks.forEach(function(a,i){if(i===cur)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+    {
+      var vh=innerHeight;
+      scs.forEach(function(el){
+        var r=el.getBoundingClientRect(), p=(vh-r.top)/(vh*0.8); p=Math.max(0,Math.min(1,p));
+        el.style.setProperty('--s',(0.9+0.1*p).toFixed(4));
+      });
+    }
+  }
+  var tick=false;
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){frame();tick=false})}},{passive:true});
+  addEventListener('resize',frame); frame();
+
+  // mobile menu
+  var btn=d.getElementById('menuBtn'), links=d.getElementById('navLinks');
+  function setMenu(open){btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');links.classList.toggle('open',open)}
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true')});
+  links.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+  addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  // ---------- simulación de detección ----------
+  // La alarma se calcula con la posición real: se enciende cuando la caja de la persona entra en la zona de riesgo y se apaga al salir.
+  var player=d.getElementById('player'), worker=d.getElementById('worker'), pbox=d.getElementById('pbox'), plab=d.getElementById('plab');
+  var legL=d.getElementById('legL'), legR=d.getElementById('legR'), dist=d.getElementById('dist');
+  var state=d.getElementById('pvState');
+  var DUR=12000, X0=70, X1=600, RISK=520, BOXL=2, BOXW=66, PX_M=52;
+  var t=0, last=0, alarm=null;
+  function ease(k){return k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2}
+  function posAt(p){
+    if(p<.10)return X0;
+    if(p<.42)return X0+(X1-X0)*ease((p-.10)/.32);
+    if(p<.58)return X1;
+    if(p<.90)return X1-(X1-X0)*ease((p-.58)/.32);
+    return X0;
+  }
+  function moving(p){return (p>.10&&p<.42)||(p>.58&&p<.90)}
+  function fmt(ms){var s=Math.floor(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+  function render(){
+    var p=t/DUR, x=posAt(p);
+    worker.setAttribute('transform','translate('+x.toFixed(1)+',0)');
+    var sw=moving(p)?Math.sin(t/85)*5:0;
+    legL.setAttribute('y',(358+Math.max(0,sw)).toFixed(1)); legR.setAttribute('y',(358+Math.max(0,-sw)).toFixed(1));
+    var edge=x+BOXL+BOXW, inRisk=edge>RISK;
+    dist.textContent=inRisk?'Dentro de la zona de riesgo':'Distancia a la zona: '+((RISK-edge)/PX_M).toFixed(1).replace('.',',')+' m';
+    if(inRisk!==alarm){
+      alarm=inRisk;
+      player.classList.toggle('alarm',inRisk);
+      var c=inRisk?'#ff453a':'#30d158';
+      pbox.setAttribute('stroke',c); plab.setAttribute('fill',c);
+      state.lastElementChild.textContent=inRisk?'Alarma activa':'Zona despejada';
+    }
+  }
+  // bucle continuo, como un GIF: nunca se detiene
+  function loop(ts){
+    var dt=last?Math.min(ts-last,100):0; last=ts;
+    t=(t+dt)%DUR; render();
+    requestAnimationFrame(loop);
+  }
+  render(); requestAnimationFrame(loop);
+
+  // YouTube: carga el reproductor solo al hacer clic
+  d.querySelectorAll('.yt').forEach(function(box){
+    box.querySelector('.yt-play').addEventListener('click',function(){
+      var f=d.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+box.getAttribute('data-yt')+'?autoplay=1&rel=0&playsinline=1';
+      f.title=box.getAttribute('data-title')||'Demo de AddCars'; f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen=true;
+      f.referrerPolicy='strict-origin-when-cross-origin';
+      box.innerHTML=''; box.appendChild(f);
+    });
+  });
+
+  // lightbox
+  var lb=d.getElementById('lb'), lbImg=d.getElementById('lbImg');
+  d.querySelectorAll('.media button').forEach(function(b){
+    b.addEventListener('click',function(){var img=b.parentNode.querySelector('img');lbImg.src=img.currentSrc||img.src;lbImg.alt=img.alt;if(lb.showModal)lb.showModal()});
+  });
+  d.getElementById('lbClose').addEventListener('click',function(){lb.close()});
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+
+  // copiar correo
+  var cp=d.getElementById('copyBtn');
+  cp.addEventListener('click',function(){
+    var m='benjamin1gnacio1264@gmail.com';
+    (navigator.clipboard?navigator.clipboard.writeText(m):Promise.reject()).then(function(){cp.textContent='Copiado';setTimeout(function(){cp.textContent='Copiar'},1800)},function(){location.href='mailto:'+m});
+  });
+
+  d.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
